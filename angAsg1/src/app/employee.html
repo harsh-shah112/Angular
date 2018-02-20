@@ -1,0 +1,113 @@
+<div class="container">
+  <form #form="ngForm" (ngSubmit)="printData()">
+
+    <div class="form-group">
+      <label>First Name:
+        <br>
+        <input type="text" required name="f_name" placeholder="First Name" class="form-control" [ngModel]="f_name" (ngModelChange)="model.f_name=$event">
+        <br>
+        <br>
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label>Last Name:
+        <br>
+        <input type="text" required name="l_name" placeholder="Last Name" class="form-control" [ngModel]="l_name" (ngModelChange)="model.l_name=$event">
+        <br/>
+        <br/>
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label>Email :
+        <br>
+        <input type="email" required name="email" placeholder="E-mail" class="form-control" [ngModel]="email" (ngModelChange)="model.email=$event">
+        <br/>
+        <br/>
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label>Contact Number :
+        <br>
+        <input type="text" required name="Cnumber" placeholder="Contact Number" class="form-control" [ngModel]="Cnumber" (ngModelChange)="model.Cnumber=$event">
+        <br/>
+        <br/>
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label>Address :
+        <br>
+        <textarea id="Address" name="Address" placeholder="Address" class="form-control" [ngModel]="Address" (ngModelChange)="model.Address=$event"></textarea>
+        <br/>
+        <br/>
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label>Username:</label>
+      <br>
+      <input type="text" required name="user_name" Placeholder="User name" class="form-control" [ngModel]="user_name" (ngModelChange)="model.user_name=$event">
+      <br/>
+      <br/>
+    </div>
+
+    <div class="form-group">
+      <label>Password:
+        <br>
+        <input type="password" required name="password" class="form-control">
+        <br>
+        <br>
+      </label>
+    </div>
+
+
+    <label>Gender:</label>
+    <br>
+    <div class="radio">
+      <label for="male">
+        <input type="radio" name="gender" value="male" id="male" [ngModel]="gender" (ngModelChange)="model.gender=$event">Male</label>
+      <br>
+    </div>
+    <div class="radio">
+      <label for="female">
+        <input type="radio" name="gender" value="female" id="female" [ngModel]="gender" (ngModelChange)="model.gender=$event">Female</label>
+      <br>
+      <br>
+    </div>
+
+    <div class="form-group">
+      <label>Qualification :</label>
+      <br>
+      <select name="Qualification" class="form-control" [ngModel]="Qualification" (ngModelChange)="model.Qualification=$event">
+        <option *ngFor="let ql of qaulifs">
+          {{ql}}
+        </option>
+      </select>
+    </div>
+    <br>
+    <div class="form-group">
+      <label>Experience :</label>
+      <br>
+      <select name="Exp" class="form-control" [ngModel]="Exp" (ngModelChange)="model.Exp=$event">
+        <option *ngFor="let ex of experiences">
+          {{ex}}
+        </option>
+      </select>
+    </div>
+
+    <br>
+    <br>
+
+    <label>Coding languages</label>
+    <br>
+    <div class="checkbox" *ngFor="let lang of model.languages">
+      <label>
+        <input type="checkbox" [name]='lang.Name' value='{{lang.Name}}' [(ngModel)]='lang.IsEnabled'/> {{lang.Name}}
+      </label>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+</div>
