@@ -1,0 +1,38 @@
+<div class='row'>
+<div class='table-responsive'>
+<table class='table' border='1' *ngIf='employees && employees.length'>
+<tbody>
+<tr>
+    <td>First Name</td>
+    <td>Last Name</td>
+    <td>Email</td>
+    <td>Contact No</td>
+    <td>Address</td>
+    <td>User_Name</td>
+    <td>Password</td>
+    <td>Gender</td>
+    <td>Qualification</td>
+    <td>Experience</td>
+    <td>Language</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+</tr>                   
+<tr *ngFor='let employee of filteredEmployees'>
+    <td> {{ employee.firstName }}</td>
+    <td> {{ employee.lastName }}</td>
+    <td> {{ employee.userEmail }}</td>
+    <td> {{ employee.contactNo }}</td>
+    <td> {{ employee.userAddress }}</td>
+    <td> {{ employee.userName }}</td>
+    <td> {{ employee.userPass }}</td>
+    <td> {{ employee.gender }}</td>
+    <td> {{ employee.qualification }}</td>
+    <td> {{ employee.experience }}</td>
+    <td> <div *ngFor='let lang of employee.languages'>  <span *ngIf='lang.IsEnabled'> {{ lang.Name }} </span> </div></td>                               
+    <td><a [routerLink]='["/employees",employee.id,"edit"]'>Edit</a></td>
+    <td><a (click)='deleteEmp(employee.id)'>Delete</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
